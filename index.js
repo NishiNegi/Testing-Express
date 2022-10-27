@@ -50,6 +50,32 @@ const products = [
     ],
   },
 ];
+const aboutMe = {
+  name: "Juan Camilo Orjuela",
+  age: 30,
+  email: "orjuela9@gmail.com",
+  phone: "+57 3192508330",
+  address: "---",
+  city: "Bogota",
+  headline: "Publisher, designer and developer",
+  links: [
+    { name: "Linkedin", url: "https://www.linkedin.com/in/juan-orjuela/" },
+    { name: "Behance", url: "https://www.behance.net/juan_o" },
+    { name: "GitHub", url: "https://github.com/NishiNegi" },
+    { name: "Publishing house", url: "https://tanukilibros.com" },
+  ],
+  skills: [
+    { name: "Editorial design", level: "Advanced" },
+    { name: "Social Media design", level: "Intermediate" },
+    { name: "HTML", level: "Advanced" },
+    { name: "CSS", level: "Advanced" },
+    { name: "Python", level: "Intermediate" },
+    { name: "Django", level: "Intermediate" },
+    { name: "Javascript", level: "Learning" },
+    { name: "Node", level: "Learning" },
+    { name: "React", level: "Learning" },
+  ],
+};
 
 app.get("/api/products", function (req, res) {
   res.json(products);
@@ -58,6 +84,10 @@ app.get("/api/products", function (req, res) {
 app.get("/info", function (req, res) {
   res.send(`<p>Our store has info for ${products.length} products</p>
   <p>${new Date()}</p>`);
+});
+
+app.get("/about", function (req, res) {
+  res.json(aboutMe);
 });
 
 app.listen(8080);

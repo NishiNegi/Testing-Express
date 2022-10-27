@@ -54,8 +54,6 @@ const aboutMe = {
   name: "Juan Camilo Orjuela",
   age: 30,
   email: "orjuela9@gmail.com",
-  phone: "+57 3192508330",
-  address: "---",
   city: "Bogota",
   headline: "Publisher, designer and developer",
   links: [

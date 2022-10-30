@@ -1,3 +1,4 @@
+const { response } = require("express");
 const express = require("express");
 const app = express();
 
@@ -78,6 +79,33 @@ const aboutMe = {
 app.get("/api/products", function (req, res) {
   res.json(products);
 });
+
+app.get("/api/products/:id", function (req, res) {
+  const id = Number(req.params.id);
+  const indexList = products.map((element) => element.id);
+  const product = products.find((element) => element.id == id);
+  if (indexList.includes(id)) {
+    res.json(product);
+  }
+  else {
+    res.status(404);
+    es.send(`El producto no existe`);
+  }
+});
+
+app.delete("/api/products/:id", function (req, res){
+  const id = Number(req.params.id);
+  const indexList = products.map((element) => element.id);
+  if (indexList.includes(id)) {
+    res.status(200)
+    res.send("DELETE Request Called");
+  }
+  else {
+    res.status(404);
+    es.send(`El producto no existe`);
+  }
+  
+})
 
 app.get("/info", function (req, res) {
   res.send(`<p>Our store has info for ${products.length} products</p>
